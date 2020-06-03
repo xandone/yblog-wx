@@ -1,0 +1,16 @@
+<template name="item1">
+	<view class="art-root">
+		<view>
+			<image class="item-pic" src="/assets/icon.png"></image>
+		</view>
+		<view class="content">
+			<view>
+				<text  class="item-title">标题</text>
+			</view>
+			<view class="item-content-root">
+				<text class="item-content">WeUI是一套与微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。包含button、cell、dialog、progress、toast、article、actionsheet、icon等各式原生。</text>
+			</view>
+		</view>
+	</view>
+
+</template>

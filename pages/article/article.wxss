@@ -1,0 +1,3 @@
+/* pages/article/article.wxss */
+
+@import '../artItem/artItem.wxss'

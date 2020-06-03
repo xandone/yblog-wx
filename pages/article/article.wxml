@@ -1,0 +1,6 @@
+<!--pages/article/article.wxml-->
+<import src="../artItem/artItem"/>
+
+<view>
+<template is="item1"/>
+</view>
