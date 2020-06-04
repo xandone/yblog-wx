@@ -1,6 +1,10 @@
 <!--pages/article/article.wxml-->
-<import src="../artItem/artItem"/>
+<import src="../artItem/artItem" />
 
 <view>
-<template is="item1"/>
+	<template is="item1" />
+
+	<view>
+		<text>{{items[0].title}}</text>
+	</view>
 </view>
