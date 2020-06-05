@@ -1,0 +1,4 @@
+<!--pages/details/details.wxml-->
+<view>
+<text>{{artBean.content}}</text>
+</view>
