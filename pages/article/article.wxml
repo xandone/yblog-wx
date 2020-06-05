@@ -2,9 +2,5 @@
 <import src="../artItem/artItem" />
 
 <view>
-	<template is="item1" />
-
-	<view>
-		<text>{{items[0].title}}</text>
-	</view>
+	<template is="item1"  data="{{item}}" wx:for="{{items}}" wx:key="{{item.artId}}"/>
 </view>

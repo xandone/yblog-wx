@@ -8,19 +8,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tip:'我',
+    tip: '我',
     items: []
+  },
+
+  loadData() {
+    wx.showLoading({
+      title: '加载中...',
+    })
+    return app.blog.getArts()
+      .then(rep =>
+        this.setData({
+          items: this.data.items.concat(rep)
+        }),
+        wx.hideLoading(),
+        console.log(123)
+      ).catch(e => {
+        wx.hideLoading()
+      })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.blog.getArts().then(rep =>
-      this.setData({
-        items: this.data.items.concat(rep)
-      }),
-    )
+    this.loadData()
 
   },
 
@@ -56,7 +68,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      items:[]
+    })
+    this.loadData()
+      .then(() => wx.stopPullDownRefresh())
   },
 
   /**
