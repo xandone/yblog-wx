@@ -6,16 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    artBean: {}
+    artBean: {},
   },
 
   loadDetails(id) {
     return app.blog.getArtDetails(id)
-      .then(rep =>
-       this.setData({
-         artBean:rep
-       })
-      )
+      .then(rep => {
+        rep.contentHtml = rep.contentHtml.replace(/\<img/gi, '<img style="width:100%;height:auto" '),
+          this.setData({
+            artBean: rep
+          }),
+          console.log(this.data.artBean.contentHtml)
+      })
   },
 
   /**
