@@ -1,4 +1,4 @@
-const URL = 'http://xandone.pub/yblog';
+const URL = 'https://xandone.pub/yblog';
 
 function getDatas(path, params) {
   return new Promise((resolve, reject) => {
@@ -14,13 +14,13 @@ function getDatas(path, params) {
   })
 }
 
-function getArts() {
+function getArts(page, row) {
   const params = {
-    page: 1,
-    row: 10
+    page: page,
+    row: row
   }
   return getDatas('/art/artlist', params)
-    .then(rep => rep.data.data)
+    .then(rep => rep.data)
 }
 
 function getArtDetails(id) {

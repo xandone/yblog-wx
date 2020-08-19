@@ -9,22 +9,10 @@ Page({
    */
   data: {
     tip: '我',
-    items: []
-  },
-
-  loadData() {
-    wx.showLoading({
-      title: '加载中...',
-    })
-    return app.blog.getArts()
-      .then(rep =>
-        this.setData({
-          items: this.data.items.concat(rep)
-        }),
-        wx.hideLoading()
-      ).catch(e => {
-        wx.hideLoading()
-      })
+    items: [],
+    page: 1,
+    size: 10,
+    hasMore: true,
   },
 
   /**
@@ -32,7 +20,6 @@ Page({
    */
   onLoad: function (options) {
     this.loadData()
-
   },
 
   /**
@@ -67,18 +54,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({
-      items:[]
-    })
-    this.loadData()
-      .then(() => wx.stopPullDownRefresh())
+    this.loadData();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getArtsMore();
   },
 
   /**
@@ -86,5 +69,50 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  loadData() {
+    this.setData({
+      page: 1,
+      size: 10
+    })
+    wx.showLoading({
+      title: '加载中...',
+    })
+    return app.blog.getArts(this.data.page, this.data.size)
+      .then(rep => {
+        this.data.items = [];
+        this.setData({
+            items: this.data.items.concat(rep.data),
+            hasMore: this.data.items.length < rep.total
+          }),
+          wx.hideLoading()
+      }).then(() => {
+        wx.stopPullDownRefresh()
+      }).catch(e => {
+        wx.hideLoading()
+      })
+  },
+
+  getArtsMore() {
+    if (!this.data.hasMore) {
+      return;
+    }
+    wx.showLoading({
+      title: '加载中...',
+    })
+    return app.blog.getArts(++this.data.page, this.data.size)
+      .then(rep => {
+        this.setData({
+          items: this.data.items.concat(rep.data),
+          hasMore: this.data.items.length < rep.total
+        });
+        wx.hideLoading()
+      }).then(() => {
+        wx.stopPullDownRefresh()
+      }).catch(e => {
+        wx.hideLoading()
+        this.data.page--;
+      })
+  },
 })

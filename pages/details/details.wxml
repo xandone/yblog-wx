@@ -1,5 +1,4 @@
 <!--pages/details/details.wxml-->
-<view>
-<text>{{artBean}}</text>
-<rich-text nodes="{{artBean.contentHtml}}"></rich-text>
+<view class="art-root">
+	<rich-text nodes="{{artBean.contentHtml}}"></rich-text>
 </view>
