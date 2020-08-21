@@ -12,8 +12,9 @@ Page({
   loadDetails(id) {
     return app.blog.getArtDetails(id)
       .then(rep => {
-        rep.contentHtml = rep.contentHtml.replace(/\<img/gi, '<img style="width:100%;height:auto" '),
-          this.setData({
+        rep.contentHtml = rep.contentHtml.replace(/\<img/gi, '<img style="width:100%;height:auto" ')
+        .replace(/\<pre/gi, '<pre style="overflow: auto;background-color: #f6f6f6;padding:10px; font-size:15px;" ')
+        this.setData({
             artBean: rep
           }),
           console.log(this.data.artBean.contentHtml)

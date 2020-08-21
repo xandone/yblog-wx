@@ -5,17 +5,18 @@
 }
 
 .item-pic {
-  width: 200rpx;
-  height: 150rpx;
+  width: 220rpx;
+  height: 160rpx;
   border-radius: 4%;
 }
 
 .content {
   margin-left: 10rpx;
+  margin-right: 10rpx;
 }
 
 .item-title {
-  font-size: 30rpx;
+  font-size: 32rpx;
   font-weight: bold;
   color: #333;
 }
@@ -23,12 +24,13 @@
 .item-content-root {
   height: 90rpx;
   overflow: hidden;
-  font-size: 24rpx;
+  font-size: 26rpx;
   line-height: 31rpx;
 }
 
 .item-content {
-  color: #999;
+  width: 100%;
+  color: #666;
   max-lines: 3;
-
+  box-sizing: border-box;
 }
