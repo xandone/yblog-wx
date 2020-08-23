@@ -9,23 +9,34 @@ Page({
     artBean: {},
   },
 
-  loadDetails(id) {
-    return app.blog.getArtDetails(id)
+  loadDetails(isArt,id) {
+    if(isArt){ 
+      return app.blog.getArtDetails(id)
       .then(rep => {
         rep.contentHtml = rep.contentHtml.replace(/\<img/gi, '<img style="width:100%;height:auto" ')
         .replace(/\<pre/gi, '<pre style="overflow: auto;background-color: #f6f6f6;padding:10px; font-size:15px;" ')
         this.setData({
             artBean: rep
-          }),
-          console.log(this.data.artBean.contentHtml)
+          })
+      })}else{
+      return app.blog.getEssayDetails(id)
+      .then(rep => {
+        rep.contentHtml = rep.contentHtml.replace(/\<img/gi, '<img style="width:100%;height:auto" ')
+        .replace(/\<pre/gi, '<pre style="overflow: auto;background-color: #f6f6f6;padding:10px; font-size:15px;" ')
+        this.setData({
+            artBean: rep
+          })
       })
+    }
+   
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.loadDetails(options.id)
+    console.log(options.isArt+"  "+options.id);
+    this.loadDetails(options.isArt,options.id)
   },
 
   /**

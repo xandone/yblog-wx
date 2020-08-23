@@ -1,9 +1,8 @@
 .art-root {
   display: flex;
   align-items: flex-start;
-  margin-top: 10rpx;
   padding: 20rpx 0;
-  border-bottom: 0.5rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
 }
 
 .item-pic {
@@ -35,4 +34,16 @@
   color: #666;
   max-lines: 3;
   box-sizing: border-box;
+}
+
+.essay-imgs {
+  display: flex;
+  margin-top: 4px;
+}
+
+.essay-imgs image {
+  width: 220rpx;
+  height: 160rpx;
+  border-radius: 4%;
+  margin-right: 10rpx;
 }

@@ -1,14 +1,35 @@
 {
-  "pages":[
+  "pages": [
     "pages/article/article",
     "pages/details/details",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/essay/essay"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#ffd04b",
+    "borderStyle": "white",
+    "backgroundColor": "white",
+    "list": [
+      {
+        "pagePath": "pages/article/article",
+        "text": "编程",
+        "iconPath": "assets/ic_main.png",
+        "selectedIconPath": "assets/ic_main_actived.png"
+      },
+      {
+        "pagePath": "pages/essay/essay",
+        "text": "杂文",
+        "iconPath": "assets/ic_essay.png",
+        "selectedIconPath": "assets/ic_essay_actived.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -1,0 +1,4 @@
+<!--pages/essay/essay.wxml-->
+<import src="../essayitem/essayitem"/>
+
+<template is="item1" data="{{item}}" wx:for="{{items}}" wx:key="{{item.essayId}}"></template>

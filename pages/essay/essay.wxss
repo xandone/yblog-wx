@@ -1,0 +1,2 @@
+/* pages/essay/essay.wxss */
+@import '../essayitem/essayitem.wxss'

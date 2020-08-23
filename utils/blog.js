@@ -31,7 +31,27 @@ function getArtDetails(id) {
     .then(rep => rep.data.data[0])
 }
 
+function getEssays(page, row) {
+  const params = {
+    page: page,
+    row: row
+  }
+  return getDatas('/essay/essaylist', params)
+    .then(rep => rep.data)
+}
+
+function getEssayDetails(id) {
+  const params = {
+    essayId: id
+  }
+  return getDatas('/essayDetails', params)
+    .then(rep => rep.data.data[0])
+}
+
+
 module.exports = {
   getArts,
-  getArtDetails
+  getArtDetails,
+  getEssays,
+  getEssayDetails
 }
