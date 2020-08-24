@@ -10,22 +10,28 @@ Page({
   },
 
   loadDetails(isArt,id) {
-    if(isArt){ 
+    if(isArt==0){ 
       return app.blog.getArtDetails(id)
       .then(rep => {
         rep.contentHtml = rep.contentHtml.replace(/\<img/gi, '<img style="width:100%;height:auto" ')
-        .replace(/\<pre/gi, '<pre style="overflow: auto;background-color: #f6f6f6;padding:10px; font-size:15px;" ')
+        .replace(/\<pre/gi, '<pre style="overflow: auto;background-color: #f6f6f6;padding:10px; font-size:15px;" ');
         this.setData({
             artBean: rep
-          })
+          });
+          wx.setNavigationBarTitle({
+            title:this.data.artBean.title
+            });
       })}else{
       return app.blog.getEssayDetails(id)
       .then(rep => {
         rep.contentHtml = rep.contentHtml.replace(/\<img/gi, '<img style="width:100%;height:auto" ')
-        .replace(/\<pre/gi, '<pre style="overflow: auto;background-color: #f6f6f6;padding:10px; font-size:15px;" ')
+        .replace(/\<pre/gi, '<pre style="overflow: auto;background-color: #f6f6f6;padding:10px; font-size:15px;" ');
         this.setData({
             artBean: rep
-          })
+          });
+          wx.setNavigationBarTitle({
+            title:this.data.artBean.title
+            });
       })
     }
    
@@ -35,7 +41,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.isArt+"  "+options.id);
     this.loadDetails(options.isArt,options.id)
   },
 

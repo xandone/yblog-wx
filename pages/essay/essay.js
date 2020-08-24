@@ -125,6 +125,7 @@ Page({
       this.data.items[i].leftImg = jsarr[0];
     }
 
+    // 直接this.data.bean.这样修改数据，并不会刷新布局
     this.setData({
       items: this.data.items
     })

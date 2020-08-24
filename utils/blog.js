@@ -44,7 +44,7 @@ function getEssayDetails(id) {
   const params = {
     essayId: id
   }
-  return getDatas('/essayDetails', params)
+  return getDatas('essay/essayDetails', params)
     .then(rep => rep.data.data[0])
 }
 

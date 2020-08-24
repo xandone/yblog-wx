@@ -26,7 +26,7 @@
 .item-content-root {
   height: 90rpx;
   overflow: hidden;
-  font-size: 28rpx;
+  font-size: 30rpx;
   line-height: 31rpx;
 }
 

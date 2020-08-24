@@ -1,5 +1,5 @@
 <template name="item1">
-<navigator url="../details/details?id={{item.artId}}&isArt=true">
+<navigator url="../details/details?id={{item.artId}}&isArt=0">
 	<view class="art-root" >
 		<view>
 			<image wx:if="{{item.coverImg}}" class="item-pic" src="{{item.coverImg}}"></image>
