@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    banner: [],
     items: [],
     page: 1,
     size: 10,
@@ -74,11 +75,11 @@ Page({
     this.setData({
       page: 1,
       size: 10
-    })
+    });
     wx.showLoading({
       title: '加载中...',
-    })
-    return app.blog.getEssays(this.data.page, this.data.size)
+    });
+     app.blog.getEssays(this.data.page, this.data.size)
       .then(rep => {
         this.data.items = [];
         this.setData({
@@ -91,6 +92,13 @@ Page({
         wx.stopPullDownRefresh()
       }).catch(e => {
         wx.hideLoading()
+      });
+
+      app.blog.getBanners().then(rep=>{
+        this.data.banner = [];
+        this.setData({
+          banner:this.data.banner.concat(rep.data)
+        })
       })
   },
 

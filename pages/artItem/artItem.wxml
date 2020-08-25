@@ -1,17 +1,17 @@
 <template name="item1">
-<navigator url="../details/details?id={{item.artId}}&isArt=0">
-	<view class="art-root" >
-		<view>
-			<image wx:if="{{item.coverImg}}" class="item-pic" src="{{item.coverImg}}"></image>
-		</view>
-		<view class="content">
+	<navigator url="../details/details?id={{item.artId}}&isArt=0">
+		<view class="art-item-root">
 			<view>
-				<text  class="item-title">{{item.title}}</text>
+				<image wx:if="{{item.coverImg}}" class="item-pic" src="{{item.coverImg}}"></image>
 			</view>
-			<view class="item-content-root">
-				<text class="item-content">{{item.content}}</text>
+			<view class="content">
+				<view>
+					<text  class="item-title">{{item.title}}</text>
+				</view>
+				<view class="item-content-root">
+					<text class="item-content">{{item.content}}</text>
+				</view>
 			</view>
 		</view>
-	</view>
-</navigator>
+	</navigator>
 </template>

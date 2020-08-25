@@ -1,6 +1,6 @@
 <!--pages/article/article.wxml-->
 <import src="../artItem/artItem" />
 
-<view>
+<view class="art-root">
 	<template is="item1"  data="{{item}}" wx:for="{{items}}" wx:key="{{item.artId}}"/>
 </view>

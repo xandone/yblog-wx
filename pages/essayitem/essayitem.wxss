@@ -1,8 +1,11 @@
-.art-root {
+.essay-item-root {
   display: flex;
   align-items: flex-start;
-  padding: 20rpx 0;
-  border-bottom: 1rpx solid #ddd;
+  margin: 20rpx;
+  padding: 10rpx 10rpx;
+  border-radius: 2%;
+  background-color: white;
+  box-sizing: border-box;
 }
 
 .item-pic {
@@ -23,17 +26,18 @@
 }
 
 .item-content-root {
-  height: 90rpx;
   overflow: hidden;
   font-size: 30rpx;
-  line-height: 31rpx;
 }
 
 .item-content {
-  width: 100%;
   color: #666;
-  max-lines: 3;
-  box-sizing: border-box;
+  word-break: break-all;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .essay-imgs {
@@ -42,8 +46,8 @@
 }
 
 .essay-imgs image {
-  width: 220rpx;
-  height: 160rpx;
+  width: 210rpx;
+  height: 155rpx;
   border-radius: 4%;
   margin-right: 10rpx;
 }

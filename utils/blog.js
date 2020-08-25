@@ -48,10 +48,16 @@ function getEssayDetails(id) {
     .then(rep => rep.data.data[0])
 }
 
+function getBanners(){
+    return getDatas('/banner/list')
+    .then(rep => rep.data)
+}
+
 
 module.exports = {
   getArts,
   getArtDetails,
   getEssays,
-  getEssayDetails
+  getEssayDetails,
+  getBanners
 }

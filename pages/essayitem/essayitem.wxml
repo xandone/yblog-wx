@@ -1,6 +1,6 @@
 <template name="item1">
 	<navigator url="../details/details?id={{item.essayId}}&isArt=1">
-		<view class="art-root">
+		<view class="essay-item-root">
 			<view>
 				<image wx:if="{{item.isShowLeft}}" class="item-pic" src="{{item.imgArr[0]}}"></image>
 			</view>
