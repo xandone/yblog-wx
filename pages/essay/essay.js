@@ -79,7 +79,7 @@ Page({
     wx.showLoading({
       title: '加载中...',
     });
-     app.blog.getEssays(this.data.page, this.data.size)
+    app.blog.getEssays(this.data.page, this.data.size)
       .then(rep => {
         this.data.items = [];
         this.setData({
@@ -87,19 +87,22 @@ Page({
             hasMore: this.data.items.length < rep.total
           }),
           this.checkShowBottom();
-          wx.hideLoading()
+        wx.hideLoading()
       }).then(() => {
         wx.stopPullDownRefresh()
       }).catch(e => {
         wx.hideLoading()
       });
 
-      app.blog.getBanners().then(rep=>{
-        this.data.banner = [];
-        this.setData({
-          banner:this.data.banner.concat(rep.data)
-        })
-      })
+    app.blog.getBanners().then(rep => {
+      this.data.banner = [];
+      this.setData({
+        banner: this.data.banner.concat(rep.data)
+      });
+      console.log(this.data.banner[0].articelId);
+    });
+
+
   },
 
   getArtsMore() {
@@ -125,7 +128,7 @@ Page({
       })
   },
   checkShowBottom() {
-    for(let i=0;i<this.data.items.length;i++){
+    for (let i = 0; i < this.data.items.length; i++) {
       let jsarr = JSON.parse(this.data.items[i].coverImg);
       this.data.items[i].isShowBottom = jsarr.length >= 3;
       this.data.items[i].isShowLeft = jsarr.length == 1 || jsarr.length == 2;
@@ -137,5 +140,10 @@ Page({
     this.setData({
       items: this.data.items
     })
-},
+  },
+  onItemClick(e) {
+    wx.navigateTo({
+      url: '../details/details?id='+e.target.dataset.essayid+'&isArt=1',
+    })
+  }
 })

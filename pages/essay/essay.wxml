@@ -1,12 +1,12 @@
 <!--pages/essay/essay.wxml-->
-<import src="../essayitem/essayitem"/>
+<import src="../essayitem/essayitem" />
 <view class="essay-root">
 	<view class="banner">
-		<swiper class="banner-swiper" indicator-dots="true">
+		<swiper class="banner-swiper" indicator-dots="true" autoplay="true">
 			<swiper-item wx:for="{{banner}}">
-				<image class="banner-img" src="{{item.imgUrl}}"></image>
+				<image class="banner-img" src="{{item.imgUrl}}" catchtap="onItemClick" data-essayid="{{item.articelId}}"></image>
 			</swiper-item>
 		</swiper>
 	</view>
-<template is="item1" data="{{item}}" wx:for="{{items}}" wx:key="{{item.essayId}}"></template>
+	<template is="item1" data="{{item}}" wx:for="{{items}}" wx:key="{{item.essayId}}"></template>
 </view>
