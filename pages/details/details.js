@@ -7,6 +7,8 @@ Page({
    */
   data: {
     artBean: {},
+    // scrollTop:0,
+    goTopStatus:false
   },
 
   loadDetails(isArt,id) {
@@ -41,7 +43,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.isArt+"    id= "+options.id);
     this.loadDetails(options.isArt,options.id)
   },
 
@@ -92,5 +93,24 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onPageScroll:function(obj){
+    if (obj.scrollTop > 360) {
+      this.setData({
+          goTopStatus: true
+      })
+  }else{
+    this.setData({
+      goTopStatus: false
+  })
+  }
+  },
+  go2Top: function() {
+    wx.pageScrollTo({
+        scrollTop: 0,
+    })
+    this.setData({
+        goTopStatus: false
+    })
   }
 })
