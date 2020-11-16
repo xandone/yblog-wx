@@ -1,7 +1,8 @@
 <!--pages/details/details.wxml-->
 <view class="art-root">
-	<rich-text nodes="{{artBean.contentHtml}}"></rich-text>
+	<rich-text class="content-rt" nodes="{{artBean.contentHtml}}"></rich-text>
+	<view class="content-date"><text>{{artBean.postTime}}</text></view>
 	<view class="go-top-icon" wx:if="{{goTopStatus}}" bindtap='go2Top'>
-		<image src='../../assets/ic_main_actived.png' class="go-top-image" mode='widthFix'></image>
+		<image src='../../assets/totop.png' class="go-top-image" mode='widthFix'></image>
 	</view>
 </view>
