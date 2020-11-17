@@ -132,7 +132,7 @@ Page({
       let jsarr = JSON.parse(this.data.items[i].coverImg);
       this.data.items[i].isShowBottom = jsarr.length >= 3;
       this.data.items[i].isShowLeft = jsarr.length == 1 || jsarr.length == 2;
-      this.data.items[i].imgArr = jsarr;
+      this.data.items[i].imgArr = jsarr.slice(0,3);
       this.data.items[i].leftImg = jsarr[0];
     }
 
